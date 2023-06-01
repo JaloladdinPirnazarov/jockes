@@ -102,6 +102,7 @@ class MyApp extends StatelessWidget {
                               Get.updateLocale(Locale('us', 'US'));
                               langBox.put("country", "US");
                               langBox.put("language", "us");
+                              print("us");
                             },
                             child: Row(
                               children: [

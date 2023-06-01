@@ -12,17 +12,9 @@ class Messages extends Translations{
       'joke_info':'Hazil Haqida',
       'type':'Tip',
       'setup':'Savol',
-      'punchline':'Javob'
-    },
-    'en_EN':{
-      'jokes':'Jokes',
-      'all':'All',
-      'favourite':'Favourite',
-      'close':'Close',
-      'joke_info':'Joke Info',
-      'type':'Type',
-      'setup':'Setup',
-      'punchline':'Punchline'
+      'punchline':'Javob',
+      'added':"Ko'shildi",
+      'deleted':"O'chirildi",
     },
     'ru_RU':{
       'jokes':'Шутки',
@@ -32,8 +24,23 @@ class Messages extends Translations{
       'joke_info':'О шутке',
       'type':'Тип',
       'setup':'Контекст',
-      'punchline':'Концовка'
-    }
+      'punchline':'Концовка',
+      'added':'Добавлено',
+      'deleted':"Удалено",
+    },
+
+    'us_US':{
+      'jokes':'Jokes',
+      'all':'All',
+      'favourite':'Favourite',
+      'close':'Close',
+      'joke_info':'Joke Info',
+      'type':'Type',
+      'setup':'Setup',
+      'punchline':'Punchline',
+      'added':'Added',
+      'deleted':"Deleted",
+    },
   };
 
 }
