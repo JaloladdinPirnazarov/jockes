@@ -24,7 +24,7 @@ class FavouriteJokes extends StatelessWidget {
                   itemCount: box.values.toList().length,
                   itemBuilder: (context, position) {
                     return components.buildListViewItem(
-                        box.values.toList()[position], position, false);
+                        box.values.toList()[position], position, false,context);
                   })
               : Center(
                   child: Text(

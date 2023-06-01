@@ -29,7 +29,7 @@ class AllJokes extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 itemCount: controller.jokes.value.length,
                 itemBuilder: (context, position){
-                  return components.buildListViewItem(controller.jokes[position],position,true);
+                  return components.buildListViewItem(controller.jokes[position],position,true,context);
                 }),
           );
         }

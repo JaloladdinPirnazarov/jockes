@@ -11,12 +11,13 @@ import 'package:jockes/ui/all_jokes.dart';
 import 'package:jockes/ui/favourite_jokes.dart';
 import 'package:jockes/utils/translation.dart';
 
-late Box box;
-
+late Box langBox;
 Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<JokeModel>(JokeModelAdapter());
-  box = await Hive.openBox<JokeModel>("jokes");
+  await Hive.openBox<JokeModel>("jokes");
+  await Hive.openBox("translation");
+  langBox = Hive.box("translation");
   runApp(const MyApp());
 }
 
@@ -27,10 +28,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double flagsSize = 20;
+    var country = langBox.get("country") ?? "UZ";
+    var lang = langBox.get("language")??"uz";
     return GetMaterialApp(
       translations: Messages(),
-      locale: Locale('uz','UZ'),
-      fallbackLocale: Locale('en', 'EN'),
+      locale: Locale(lang,country),
+      fallbackLocale: Locale(lang,country),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -59,6 +62,8 @@ class MyApp extends StatelessWidget {
                         PopupMenuItem(
                             onTap: () {
                               Get.updateLocale(Locale('uz', 'UZ'));
+                              langBox.put("country", "UZ");
+                              langBox.put("language", "uz");
                             },
                             child: Row(
                               children: [
@@ -76,6 +81,8 @@ class MyApp extends StatelessWidget {
                         PopupMenuItem(
                             onTap: () {
                               Get.updateLocale(Locale('ru', 'RU'));
+                              langBox.put("country", "RU");
+                              langBox.put("language", "ru");
                             },
                             child: Row(
                               children: [
@@ -93,6 +100,8 @@ class MyApp extends StatelessWidget {
                         PopupMenuItem(
                             onTap: () {
                               Get.updateLocale(Locale('us', 'US'));
+                              langBox.put("country", "US");
+                              langBox.put("language", "us");
                             },
                             child: Row(
                               children: [

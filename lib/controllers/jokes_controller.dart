@@ -37,7 +37,7 @@ class JokesController extends GetxController{
       jokesBox.clear();
       jokesBox.addAll(tempList);
     }else{
-      box.add(joke);
+      jokesBox.add(joke);
     }
     jokes.where((element) => element.id == id).toList()[0].isFavourite = !joke.isFavourite;
     jokes.refresh();
